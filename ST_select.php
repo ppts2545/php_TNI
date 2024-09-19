@@ -10,6 +10,26 @@ New! Keyboard shortcuts … Drive keyboard shortcuts have been updated to give y
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
+<?php 
+        $host = "localhost";
+        $user = "root";
+        $pass = "";
+        $db = "staff"; // Missing semicolon
+
+        // Establishing connection
+        $conn = mysqli_connect($host, $user, $pass, $db);
+
+        $strKeyword = null;
+          if(isset($_POST["txtKeyword"])){
+          $strKeyword = $_POST["txtKeyword"];
+        }
+
+
+        $str = "select * from student where fname like '%$strKeyword%'";
+        $obj = mysqli_query($conn,$str);
+        
+        include("page/pg.php");
+        ?>
 
 <div class="card text-center" style="padding:15px;">
   <h4>Student System</h4>
@@ -38,21 +58,7 @@ New! Keyboard shortcuts … Drive keyboard shortcuts have been updated to give y
     </thead>
     <tbody>
 
-        <?php 
-        $host = "localhost";
-        $user = "root";
-        $pass = "";
-        $db = "staff"; // Missing semicolon
-
-        // Establishing connection
-        $conn = mysqli_connect($host, $user, $pass, $db);
-
-        $str = "select * from student ";
-        $obj = mysqli_query($conn,$str);
-        ?>
-
         
-
         <?php
         $i = 0;
         while($result = mysqli_fetch_array($obj)){
@@ -77,6 +83,11 @@ New! Keyboard shortcuts … Drive keyboard shortcuts have been updated to give y
         ?>
     </tbody>
   </table>
+  <br>
+  <?php 
+    include("page/sh.php")
+  ?>
+
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
