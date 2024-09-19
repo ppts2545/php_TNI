@@ -7,13 +7,7 @@ $final_score    = $_POST['final_score'];
 $editID = $_POST['editID'];
 
 //Connect DataBase
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db = "staff"; // Missing semicolon
-
-// Establishing connection
-$conn = mysqli_connect($host, $user, $pass, $db);
+include("../config.php");
 
 // Query Data From DataBase
 $str = "update student set fname = '$fullname', nname = '$nname',

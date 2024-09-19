@@ -2,13 +2,7 @@
  
 $del1 = $_GET['del'];
 //Connect DataBase
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db = "staff"; // Missing semicolon
-
-// Establishing connection
-$conn = mysqli_connect($host, $user, $pass, $db);
+include("../config.php");
 
 // Query Data From DataBase
 $str = "delete from student where id = '$del1' ";

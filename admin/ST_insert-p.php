@@ -5,12 +5,7 @@ $nname          = $_POST['nname'];
 $mid_score      = $_POST['mid_score'];
 $final_score    = $_POST['final_score'];
 
-//Connect DataBase
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db = "staff"; // Missing semicolon
-
+include("../config.php");
 // Establishing connection
 $conn = mysqli_connect($host, $user, $pass, $db);
 

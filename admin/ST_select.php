@@ -11,24 +11,19 @@ New! Keyboard shortcuts … Drive keyboard shortcuts have been updated to give y
 </head>
 <body>
 <?php 
-        $host = "localhost";
-        $user = "root";
-        $pass = "";
-        $db = "staff"; // Missing semicolon
-
-        // Establishing connection
-        $conn = mysqli_connect($host, $user, $pass, $db);
+        
+        include("../config.php");
 
         $strKeyword = null;
-          if(isset($_POST["txtKeyword"])){
-          $strKeyword = $_POST["txtKeyword"];
+          if(isset($_GET["txtKeyword"])){
+          $strKeyword = $_GET["txtKeyword"];
         }
 
 
         $str = "select * from student where fname like '%$strKeyword%'";
         $obj = mysqli_query($conn,$str);
         
-        include("page/pg.php");
+        include("../page/pg.php");
         ?>
 
 <div class="card text-center" style="padding:15px;">
@@ -39,7 +34,7 @@ New! Keyboard shortcuts … Drive keyboard shortcuts have been updated to give y
   <h4>PHP : Select Data
     <a href="ST_insert.php" class="btn btn-primary" >Add New Record</a>
 
-    <form name="frmSearch" method="post" action="<?php echo $_SERVER['SCRIPT_NAME'];?>" style="float:right;">
+    <form name="frmSearch" method="get" action="<?php echo $_SERVER['SCRIPT_NAME'];?>" style="float:right;">
       Keyword : <input name="txtKeyword" type="text" id="txtKeyword" value="<?php echo $strKeyword;?>">
       <input type="submit" value="Search">
     </form>
@@ -60,7 +55,7 @@ New! Keyboard shortcuts … Drive keyboard shortcuts have been updated to give y
 
         
         <?php
-        $i = 0;
+        $i = ($Page - 1)*$Per_Page;
         while($result = mysqli_fetch_array($obj)){
         ?>
     
@@ -85,7 +80,7 @@ New! Keyboard shortcuts … Drive keyboard shortcuts have been updated to give y
   </table>
   <br>
   <?php 
-    include("page/sh.php")
+    include("../page/sh.php")
   ?>
 
 </div>
