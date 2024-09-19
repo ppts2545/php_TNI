@@ -17,7 +17,13 @@ New! Keyboard shortcuts … Drive keyboard shortcuts have been updated to give y
 
 <div class="container">
   <h4>PHP : Select Data
-    <a href="ST_insert.php" class="btn btn-primary" style="float:right;">Add New Record</a>
+    <a href="ST_insert.php" class="btn btn-primary" >Add New Record</a>
+
+    <form name="frmSearch" method="post" action="<?php echo $_SERVER['SCRIPT_NAME'];?>" style="float:right;">
+      Keyword : <input name="txtKeyword" type="text" id="txtKeyword" value="<?php echo $strKeyword;?>">
+      <input type="submit" value="Search">
+    </form>
+
     </h4><br>
   <table class="table table-hover">
     <thead>
