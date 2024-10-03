@@ -1,3 +1,11 @@
+<?php
+  session_start();
+
+  if($_SESSION['user']==""){
+    echo "<meta http-equiv='refresh' content='0;URL=../login.php' />";
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +22,7 @@
 </div><br> 
 
 <div class="container">
-  <form action="ST_insert-p.php" method="POST">
+  <form action="ST_insert-p.php" method="POST" enctype="multipart/form-data">
     <div class="form-group">
       <label for="fullname">FullName:</label>
       <input type="text" class="form-control" name="fullname" placeholder="Enter Fullname" required="">
@@ -29,7 +37,11 @@
     </div>
     <div class="form-group">
       <label for="finalscore">Final Score:</label>
-      <input type="text" class="form-control" name="final_score" placeholder="Enter Final Score" required="">
+      <input type="text" class="form-control" name="finalupload" placeholder="Enter Final Score" required="">
+    </div>
+    <div class="form-group">
+      <label for="Picture">Picture:</label>
+      <input type="file" class="form-control" name="final_score" >
     </div>
     <input type="submit" name="submit" class="btn btn-primary" style="float:right;" value="Submit">
   </form>

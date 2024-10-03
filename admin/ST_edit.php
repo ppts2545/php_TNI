@@ -1,3 +1,10 @@
+<?php
+  session_start();
+
+  if($_SESSION['user']==""){
+    echo "<meta http-equiv='refresh' content='0;URL=../login.php' />";
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,8 +48,16 @@
       <label for="finalscore">Final Score:</label>
       <input type="text" value="<?=$result['id']; ?>" class="form-control" name="final_score" placeholder="Enter Final Score" required="">
     </div>
+    
+    <div class="form-group">
+      <img src="" alt="">
+      <label for="Picture">Picture:</label>
+      <input type="file" class="form-control" name="final_score" >
+    </div>
+
     <input type="hidden" name="editID" value="<?=$result['id']; ?>"/>
     <input type="submit"  name="submit" class="btn btn-primary" style="float:right;" value="Submit">
+
   </form>
 </div>
 

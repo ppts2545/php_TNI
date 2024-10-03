@@ -1,4 +1,11 @@
-New! Keyboard shortcuts … Drive keyboard shortcuts have been updated to give you first-letters navigation
+<?php
+  session_start();
+
+  if($_SESSION['user']==""){
+    echo "<meta http-equiv='refresh' content='0;URL=../login.php' />";
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +34,9 @@ New! Keyboard shortcuts … Drive keyboard shortcuts have been updated to give y
         ?>
 
 <div class="card text-center" style="padding:15px;">
-  <h4>Student System</h4>
+  <h4>Student System
+    <a href="../logout.php">Log out</a>
+  </h4>
 </div><br>
 
 <div class="container">
@@ -44,6 +53,7 @@ New! Keyboard shortcuts … Drive keyboard shortcuts have been updated to give y
     <thead>
       <tr>
         <th>No</th>
+        <th>Picture</th>
         <th>Fullname</th>
         <th>Nickname</th>
         <th>Midterm</th>
@@ -61,6 +71,7 @@ New! Keyboard shortcuts … Drive keyboard shortcuts have been updated to give y
     
           <tr>
             <td><?= ++$i; ?></td>
+            <td><img src="<?= $result['img'];?>" width="50"></td>
             <td><?php echo $result['fname'];?></td>
             <td><?= $result['nname'];?></td>
             <td><?= $result['mid_score'];?></td>

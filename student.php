@@ -44,6 +44,7 @@ New! Keyboard shortcuts … Drive keyboard shortcuts have been updated to give y
     <thead>
       <tr>
         <th>No</th>
+        <th>Picture</th>
         <th>Fullname</th>
         <th>Nickname</th>
         <th>Midterm</th>
@@ -61,6 +62,7 @@ New! Keyboard shortcuts … Drive keyboard shortcuts have been updated to give y
     
           <tr>
             <td><?= ++$i; ?></td>
+            <td><img src="<?="admin/".$result['img'];?>" width="50"></td>
             <td><?php echo $result['fname'];?></td>
             <td><?= $result['nname'];?></td>
             <td><?= $result['mid_score'];?></td>

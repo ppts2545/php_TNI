@@ -1,4 +1,11 @@
 <?php
+  session_start();
+
+  if($_SESSION['user']==""){
+    echo "<meta http-equiv='refresh' content='0;URL=../login.php' />";
+  }
+?>
+<?php
  
 $del1 = $_GET['del'];
 //Connect DataBase
